@@ -57,3 +57,31 @@ class GameManager(object):
         def print_board(self):
             for row in self.board:
                 print(" ".join([str(x) for x in row]))
+
+
+def find_flip_lines(board, player, i, j):
+    lines = []
+    for xdir, ydir in [[0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, -1],
+                       [-1, 0], [-1, 1]]:
+
+        i = i + xdir
+        j = j + ydir
+        found = False
+        while i >= 0 and i < len(board) and j >= 0 and j < len(board):
+            if board[j][i] == 0:
+                break
+            elif board[j][i] == player:
+                found = True
+                break
+    return lines
+
+def get_possible_moves(board, player):
+
+    moves = []
+    for i in range(len(board)):
+        for j in range(len(board)):
+            if board[j][i] == 0:
+                lines = find_flip_lines(board,i,j,player)
+                if lines:
+                    moves.append((i,j))
+    return moves
