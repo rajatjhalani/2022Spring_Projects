@@ -21,5 +21,22 @@ def get_board_weights(board):
     white_score = 0
     black_score = 0
     blank_spaces = 0
+    white_weighted = 0
+    black_weighted = 0
 
+    for i in range(len(board)):
+        for j in range(len(board)):
+            if board[i][j] == 0:
+                blank_spaces += 1
+            elif board[i][j] == 1:
+                black_score += 1
+                black_weighted += boardWeights[i][j]
+            elif board[i][j] == 2:
+                white_score += 1
+                white_weighted += boardWeights[i][j]
+
+            if blank_spaces > 0:
+                return black_weighted, white_weighted
+            else:
+                return black_score, white_score
 
