@@ -85,3 +85,16 @@ def get_possible_moves(board, player):
                 if lines:
                     moves.append((i,j))
     return moves
+
+
+def get_score(board):
+    black_score = 0
+    white_score = 0
+    for i in range(len(board)):
+        for j in range(len(board)):
+            if board[i][j] == 1:
+                black_score += 1
+            elif board[i][j] == 2:
+                white_score += 1
+    return black_score, white_score
+

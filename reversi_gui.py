@@ -35,3 +35,4 @@ class Gui(object):
             for j in range(self.width):
                 self.canvas.create_rectangle(i * self.cell_size + self.offset, j * self.cell_size + self.offset)
 
+

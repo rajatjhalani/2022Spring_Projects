@@ -8,7 +8,7 @@ White takes the first turn
 
 The game ends when one player cannot place a piece
 
-##MODIFICATIONS 
+## MODIFICATIONS 
 
 Black goes first
 
@@ -25,4 +25,6 @@ The default is 8 X 8 size board
 Made use of Minimax algorithm for move prediction
 
 Added weights based on the various board positions
+
+![img_1.png](img_1.png)
 
