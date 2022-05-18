@@ -1,6 +1,6 @@
-import sys
 import numpy as np
-import sys
+
+from reversi_game import get_possible_moves
 
 corners = [(0,0),(0,7),(7,0),(7,7)]
 
@@ -40,3 +40,28 @@ def get_board_weights(board):
             else:
                 return black_score, white_score
 
+# Using the minimax algorithm (pseudocode from lectures)
+def minimax_1(depth, board):
+    possible_moves = get_possible_moves(board)
+    if depth == 0 or possible_moves == []:
+        score = get_board_weights(board)
+        for i in range(len(board)):
+            for j in range(len(board)):
+                if board[i][j] == 1:
+                    return score[1] - score[0]
+                else:
+                    return score[0] - score[1]
+        best_min_score = 99999
+
+
+def minimax_2(depth, board, color):
+    possible_moves = get_possible_moves(board, color)
+    if depth == 0 or possible_moves == []:
+        score = get_board_weights(board)
+        for i in range(len(board)):
+            for j in range(len(board)):
+                if board[i][j] == 1:
+                    return score[0] - score[1]
+                else:
+                    return score[1] - score[0]
+        best_max_score = -99999
