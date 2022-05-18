@@ -27,4 +27,3 @@ Made use of Minimax algorithm for move prediction
 Added weights based on the various board positions
 
 ![img_1.png](img_1.png)
-

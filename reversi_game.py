@@ -53,10 +53,6 @@ class GameManager(object):
                 final.append(tuple(row))
             return board
 
-        def print_board(self):
-            for row in self.board:
-                print(" ".join([str(x) for x in row]))
-
 
 def find_flip_lines(board, player, i, j):
     lines = []
